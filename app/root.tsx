@@ -22,10 +22,6 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap",
   },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap",
-  },
   { rel: "icon", href: "/favicon.ico", type: "image/x-icon" }
 ];
 

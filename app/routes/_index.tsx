@@ -1,6 +1,7 @@
 import { useActionData, Form, MetaFunction } from "@remix-run/react";
-import { createCanvas } from "canvas";
+import { createCanvas, registerFont } from "canvas";
 import type { ActionFunction } from "@remix-run/node";
+import path from 'path';
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,13 +11,20 @@ export const meta: MetaFunction = () => {
 };
 
 
+
 export const action: ActionFunction = async ({ request }) => {
+
+  const fontPath = path.join(process.cwd(), 'public/fonts/Montserrat-Light.ttf');
+  // Register the custom font (ensure this points to the correct location of the font)
+  registerFont(fontPath, { family: 'Montserrat' });
+
   const formData = await request.formData();
   const name = (formData.get("name") as string) || "Friend";
 
   // Canvas dimensions
   const width = 800;
   const height = 400;
+
 
   // Create canvas and draw
   const canvas = createCanvas(width, height);
@@ -48,16 +56,11 @@ export const action: ActionFunction = async ({ request }) => {
 
   // Greeting text with black color and Montserrat font (no shadow)
   context.fillStyle = "#000000"; // Black color for text
-  context.font = "50px 'Montserrat', 'Times New Roman', sans-serif"; // Montserrat font for modern look
+  context.font = "50px 'Montserrat', sans-serif"; // Montserrat font for modern look
   context.textAlign = "center"; // Center the text horizontally
   context.textBaseline = "middle"; // Vertically center text
   context.fillText("Happy Chinese New Year!", width / 2, height / 2 - 40);
-  context.fillText(`${name}!`, width / 2, height / 2 + 40);
-
-  // Decorative emojis with a more dynamic position
-  context.font = "30px 'Montserrat', 'Times New Roman', sans-serif";
-  context.fillText("🏮🎉🐇🧧🏮", width / 2, height - 60);
-
+  context.fillText(`${name}`, width / 2, height / 2 + 40);
 
   // Convert canvas to Base64 PNG
   const base64Image = canvas.toDataURL("image/png");
