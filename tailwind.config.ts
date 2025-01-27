@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         sans: [
+          "Montserrat",
           "Inter",
           "ui-sans-serif",
           "system-ui",
