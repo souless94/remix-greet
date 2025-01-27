@@ -21,8 +21,12 @@
 
 
 ## Usage
-- Open the website url and enter the name for the greeting.
+- Visit the website at this  [link](https://remix-greet.vercel.app/) and enter a name to create a personalized greeting.
+
 - Click on Generate Greeting to create a personalized greeting card for Chinese New Year.
+
+
+*Note that the website may be down as it's a demo* 
 
 ## Installation
 
