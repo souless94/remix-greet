@@ -48,14 +48,14 @@ export const action: ActionFunction = async ({ request }) => {
 
   // Greeting text with black color and Montserrat font (no shadow)
   context.fillStyle = "#000000"; // Black color for text
-  context.font = "50px 'Montserrat', sans-serif"; // Montserrat font for modern look
+  context.font = "50px 'Montserrat',Times New Roman, sans-serif"; // Montserrat font for modern look
   context.textAlign = "center"; // Center the text horizontally
   context.textBaseline = "middle"; // Vertically center text
   context.fillText("Happy Chinese New Year!", width / 2, height / 2 - 40);
   context.fillText(`${name}!`, width / 2, height / 2 + 40);
 
   // Decorative emojis with a more dynamic position
-  context.font = "30px 'Montserrat', sans-serif";
+  context.font = "30px 'Montserrat',Times New Roman, sans-serif";
   context.fillText("🏮🎉🐇🧧🏮", width / 2, height - 60);
 
 
